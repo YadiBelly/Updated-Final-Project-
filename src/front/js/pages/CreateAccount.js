@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 
@@ -9,7 +9,7 @@ import rigoImageUrl from "../../img/rigo-baby.jpg";
 export const CreateAccount = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
-  //const profileArray = store.profile;
+  const profileArray = store.profile;
   //*const [newProfile, setNewProfile] = useState({});//*
   const [first_name, setFirstNameValue] = useState("");
   const [last_name, setLastNameValue] = useState("");
@@ -17,7 +17,7 @@ export const CreateAccount = (props) => {
   const [password, setPasswordValue] = useState("");
   const [phone, setPhoneValue] = useState("");
   const [zip_code, setStateZipCodeValue] = useState("");
-  const history = useHistory();
+  const navigate = useNavigate();
 
   function submit() {
     if (
@@ -38,13 +38,13 @@ export const CreateAccount = (props) => {
         phone,
         zip_code,
       });
-      history.push("/login");
+      navigate("/login");
     }
   }
 
   return (
     <>
-      {/* <form>
+      <form>
         <div class="form-row">
           <div class="row justify-content-center">
             <div class="text-center">
@@ -122,10 +122,7 @@ export const CreateAccount = (props) => {
             </Link>
           </div>
         </div>
-      </form> */}
-      red
+      </form>
     </>
   );
 };
-
-CreateAccount.propTypes = {};

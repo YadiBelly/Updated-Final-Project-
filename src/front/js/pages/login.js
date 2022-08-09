@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 
@@ -9,7 +9,7 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [success, setSuccess] = useState("");
-  const history = useHistory();
+  const navigate = useNavigate();
   console.log(email);
   console.log(password);
   function sendInfo(email, password) {
@@ -69,7 +69,7 @@ export const Login = () => {
                 email,
                 password,
               });
-              history.push("/calendar");
+              navigate("/");
             }}
             class="btn btn-primary"
           >

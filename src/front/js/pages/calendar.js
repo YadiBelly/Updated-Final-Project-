@@ -11,9 +11,9 @@ export const Calendar = () => {
       {store.user.email ? (
         <>
           <br />
-          <div class="row row-cols-6 justify-content-center">
+          <div className="row row-cols-6 justify-content-center">
             <button
-              class="btn btn-primary"
+              className="btn btn-primary"
               onClick={() => {
                 actions.logout();
                 navigate("/login");

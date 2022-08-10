@@ -69,7 +69,7 @@ export const Login = () => {
                 email,
                 password,
               });
-              navigate("/");
+              navigate("/calendar");
             }}
             class="btn btn-primary"
           >

@@ -6,7 +6,7 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
-
+import { Calendar } from "./pages/calendar";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { CreateAccount } from "./pages/CreateAccount";
@@ -25,7 +25,8 @@ const Layout = () => {
           <Navbar />
           <Routes>
             <Route element={<Home />} path="/" />
-            <Route element={<CreateAccount />} path="/CreateAccount" />
+            <Route element={<CreateAccount />} path="/createaccount" />
+            <Route element={<Calendar />} path="/calendar" />
             <Route element={<Login />} path="/Login" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" />

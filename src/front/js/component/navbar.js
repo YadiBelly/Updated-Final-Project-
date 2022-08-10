@@ -29,10 +29,10 @@ export const Navbar = () => {
             </Link>
           </li>
           <li class="nav-item active">
-            <a class="nav-link p-2" href="#">
+            <Link class="nav-link p-2" to="/carinfo">
               <i class="fa fa-car fa-2x p-2" aria-hidden="true"></i>
               Update Auto <span class="sr-only">(current)</span>
-            </a>
+            </Link>
           </li>
           <li class="nav-item">
             <a class="nav-link p-2" href="#">

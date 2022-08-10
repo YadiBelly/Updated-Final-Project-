@@ -5,6 +5,16 @@ const getState = ({ getStore, getActions, setStore }) => {
       user: {},
     },
     actions: {
+      Auto: () => {
+        fetch(process.env.BACKEND_URL + "/api/auto", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(modle, color, make, mileage, year, vin),
+        })
+          .then((response) => response.json())
+          .then((result) => console.log(result))
+          .catch((error) => console.log("error", error));
+      },
       createAccount: (
         first_name,
         last_name,

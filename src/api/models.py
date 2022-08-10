@@ -2,6 +2,15 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+class Car(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    model = db.Column(db.String(120), nullable=False)
+    color = db.Column(db.String(120), nullable=False)
+    make = db.Column(db.String(80), unique=False, nullable=False)
+    mileage = db.Column(db.String(80), unique=False, nullable=False)
+    year = db.Column(db.String(80), unique=False, nullable=False)
+    vin = db.Column(db.String(130), unique=False, nullable=False)
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)

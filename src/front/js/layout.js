@@ -10,6 +10,7 @@ import { Calendar } from "./pages/calendar";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { CreateAccount } from "./pages/CreateAccount";
+import { Auto } from "./pages/updateAuto";
 import { Login } from "./pages/login";
 
 //create your first component
@@ -26,6 +27,7 @@ const Layout = () => {
           <Routes>
             <Route element={<Home />} path="/" />
             <Route element={<CreateAccount />} path="/createaccount" />
+            <Route element={<Auto />} path="/carinfo" />
             <Route element={<Calendar />} path="/calendar" />
             <Route element={<Login />} path="/Login" />
             <Route element={<Demo />} path="/demo" />

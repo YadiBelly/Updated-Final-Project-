@@ -5,12 +5,34 @@ const getState = ({ getStore, getActions, setStore }) => {
       user: {},
     },
     actions: {
-      Auto: () => {
-        fetch(process.env.BACKEND_URL + "/api/auto", {
+      Auto: (model, color, make, mileage, year) => {
+        fetch(process.env.BACKEND_URL + "/api/car", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(modle, color, make, mileage, year, vin),
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization:
+            //   "Basic NDFiNTY5YmMtZmQ2Yi00N2E2LTk2YzYtZDczZmYyMjJjMjM4",
+            // "partner-token": "c1df0ba295b548f1b391501ed3848a32",
+          },
+          body: JSON.stringify(model, color, make, mileage, year),
         })
+          .then((response) => response.json())
+          .then((result) => console.log(result))
+          .catch((error) => console.log("error", error));
+      },
+      Vin: (vin) => {
+        fetch(
+          `https://3001-yadibelly-updatedfinalp-0td6pqjjcge.ws-us60.gitpod.io/api/car/${vin}`,
+          {
+            method: "GET",
+            "Content-Type": "application/json",
+            headers: {
+              // Authorization:
+              //   "Basic NDFiNTY5YmMtZmQ2Yi00N2E2LTk2YzYtZDczZmYyMjJjMjM4",
+              // "partner-token": "c1df0ba295b548f1b391501ed3848a32",
+            },
+          }
+        )
           .then((response) => response.json())
           .then((result) => console.log(result))
           .catch((error) => console.log("error", error));

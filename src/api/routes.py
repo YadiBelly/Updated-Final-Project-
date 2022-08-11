@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Car
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -17,7 +17,31 @@ def signup():
     newuser = User(email=data['email'],first_name=data['first_name'],last_name=data['last_name'],password=data['password'],phone=data['phone'],zip_code=data['zip_code'])
     db.session.add(newuser)
     db.session.commit()
+    return 'success', 200
+
+@api.route('/vin', methods=['POST'])
+def create_autoInfo():
+    data = request.get_json()
+    autoInfo = Car(vin=data['vin'])
+    db.session.add(autoInfo)
+    db.session.commit()
     return 'sucess', 200
+
+@api.route('/car', methods=['POST'])
+def create_carInfo():
+    data = request.get_json()
+    autoInfo = Car(model=data['model'],color=data['color'],make=data['make'],mileage=data['mileage'],year=data['year'])
+    db.session.add(autoInfo)
+    db.session.commit()
+    return jsonify({"msg": "info created"}), 200
+
+@api.route('/auto', methods=['GET'])
+def create_carInfo():
+    car = Car.query.all()
+    carlist = list(map(lambda x: x.serialize(), car))
+    return jsonify({"msg": "info created"}), 200
+   
+
 
 @api.route('/login', methods=['POST'])
 def login():

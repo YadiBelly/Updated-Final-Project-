@@ -9,7 +9,7 @@ class Car(db.Model):
     make = db.Column(db.String(80), unique=False, nullable=False)
     mileage = db.Column(db.String(80), unique=False, nullable=False)
     year = db.Column(db.String(80), unique=False, nullable=False)
-    vin = db.Column(db.String(130), unique=False, nullable=False)
+    # vin = db.Column(db.String(130), unique=False, nullable=False)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
